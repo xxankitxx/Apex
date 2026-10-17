@@ -1,0 +1,6 @@
+breeze-connect>=1.0.69
+numpy>=1.26
+fastapi>=0.110
+uvicorn[standard]>=0.29
+truststore>=0.9
+pygame>=2.5

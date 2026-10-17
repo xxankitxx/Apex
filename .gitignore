@@ -1,0 +1,7 @@
+secrets/
+data/
+__pycache__/
+*.pyc
+*.tmp
+logs/
+assets/*.mp3

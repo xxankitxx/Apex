@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ApexOptions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Chakra+Petch:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="bar">
+  <div class="mark"><span class="tri" aria-hidden="true"></span>ApexOptions <em id="mode">paper</em></div>
+  <div class="quote">
+    <span class="q-name">Nifty futures</span>
+    <b id="fut" class="q-px">—</b>
+    <span id="futchg" class="q-chg"></span>
+  </div>
+  <dl class="facts">
+    <div><dt>Spot</dt><dd id="spot">—</dd></div>
+    <div><dt>VIX</dt><dd id="vix">—</dd></div>
+    <div><dt>ATM IV</dt><dd id="atmiv">—</dd></div>
+    <div><dt>Clock</dt><dd id="clock">—</dd></div>
+  </dl>
+  <div class="money">
+    <span class="m-label">Paper capital</span>
+    <b id="cap">—</b>
+    <span id="daypnl"></span>
+  </div>
+  <div class="health" id="health" title="feed health">
+    <i id="dot"></i>
+    <span id="feed">—</span>
+    <small id="lat">—</small>
+  </div>
+  <button id="snd" aria-pressed="false" title="Sound on entries and exits">Sound off</button>
+</header>
+
+<main>
+  <section class="vortex" aria-label="Trigger">
+    <div class="v-stage"><canvas id="tri"></canvas></div>
+    <p id="verdict" class="verdict">Waiting for data</p>
+    <p id="episode" class="episode"></p>
+    <ul id="advisors" class="advisors"></ul>
+    <p class="champ" id="champ"></p>
+  </section>
+
+  <section class="ladder" aria-label="Hero contracts">
+    <div class="sec-head"><h2>Ten hero contracts</h2><span id="expiry"></span></div>
+    <div id="lad" class="lad"></div>
+    <p class="legend">Bar = standing buyers (green, left) against standing sellers (coral, right). A seller side that is <b class="c-DRAIN-FAST">draining</b> or <b class="c-PULLED">pulled</b> is the run you are waiting for.</p>
+  </section>
+
+  <section class="pos" aria-label="Paper position">
+    <div class="sec-head"><h2>Paper position</h2><span id="poshint"></span></div>
+    <div id="pos"></div>
+    <canvas id="posline" height="70"></canvas>
+  </section>
+
+  <section class="trace" aria-label="Futures trace">
+    <div class="sec-head"><h2>Futures, last 5 minutes</h2><span id="tracehint"></span></div>
+    <canvas id="futline" height="170"></canvas>
+    <p id="futbook" class="small"></p>
+  </section>
+
+  <section class="straddle" aria-label="Straddle watch">
+    <div class="sec-head"><h2>Straddle watch</h2><span id="swhint"></span></div>
+    <div class="sw-top">
+      <div class="sw-chart"><canvas id="swline" height="190"></canvas></div>
+      <div class="sw-legs" id="swlegs"></div>
+    </div>
+    <p id="swstate" class="sw-state"></p>
+    <table id="swt" class="sw-table"><thead><tr><th>Spike</th><th>Leg</th><th class="r">Over theta</th><th class="r">Leg move</th><th class="r">Futures</th><th>Ended</th></tr></thead><tbody></tbody></table>
+  </section>
+
+  <section class="oimap" aria-label="Open interest map">
+    <div class="sec-head"><h2>Where the walls are</h2><span id="pcr"></span></div>
+    <canvas id="oi" height="300"></canvas>
+    <p id="force" class="force"></p>
+    <p id="gex" class="force"></p>
+  </section>
+
+  <section class="heavy" aria-label="Heavyweights">
+    <div class="sec-head"><h2>Heavyweights, last 15 seconds</h2><span id="hwhint">in Nifty points</span></div>
+    <div id="hw" class="hw"></div>
+    <div id="hw2" class="hw2"></div>
+  </section>
+
+  <section class="trades" aria-label="Paper trades">
+    <div class="sec-head"><h2>Today's paper trades</h2><span id="tstats"></span></div>
+    <table id="tt"><thead><tr><th>In</th><th>Out</th><th>Contract</th><th class="r">Lots</th><th class="r">Entry</th><th class="r">Exit</th><th class="r">Points</th><th class="r">Rupees</th><th>Why it closed</th><th class="r">Capital</th></tr></thead><tbody></tbody></table>
+  </section>
+
+  <section class="books" aria-label="Parallel books">
+    <div class="sec-head"><h2>Ten books, same ticks</h2><span id="lstat"></span></div>
+    <div id="books"></div>
+    <p id="sprt" class="small"></p>
+  </section>
+
+  <section class="tape" aria-label="Event tape">
+    <div class="sec-head"><h2>Event tape</h2></div>
+    <ol id="ev"></ol>
+  </section>
+</main>
+<script src="/static/app.js"></script>
+</body>
+</html>
